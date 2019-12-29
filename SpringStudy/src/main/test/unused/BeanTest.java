@@ -1,3 +1,5 @@
+package unused;
+
 import ioc.springtest.AutoWiringService;
 import ioc.springtest.Test2Class;
 import ioc.springtest.TestClass;
@@ -10,6 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import bean_test.spring_support_jsr.JsrService;
+import tools.PubUtil;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class BeanTest extends PubUtil {

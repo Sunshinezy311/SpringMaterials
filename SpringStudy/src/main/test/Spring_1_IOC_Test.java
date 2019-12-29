@@ -4,9 +4,10 @@ import ioc.springtest.AutoWiringService;
 import ioc.springtest.Test2Class;
 import ioc.springtest.TestClass;
 import org.junit.Test;
+import tools.PubUtil;
 
 public class Spring_1_IOC_Test extends PubUtil {
-    public Spring_1_IOC_Test(){
+    public Spring_1_IOC_Test() {
         super("classpath*:spring-*.xml");
     }
 

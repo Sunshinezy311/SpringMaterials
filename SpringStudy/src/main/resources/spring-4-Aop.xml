@@ -2,59 +2,105 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<!--    <bean id="moocAspect" class="aop.aop_config.MoocAspect"/>-->
-<!--    <bean id="aspectBiz" class="aop.aop_config.AspectBiz"/>-->
+    <!--    <bean id="moocAspect" class="unused.aop_config.MoocAspect"/>-->
+    <!--    <bean id="aspectBiz" class="unused.aop_config.AspectBiz"/>-->
 
-<!--    <aop:config>-->
-<!--        <aop:aspect id="moocAspectAop" ref="moocAspect">-->
-<!--            <aop:pointcut id="moocPointcut" expression="execution(* aop.aop_config.*Biz.*(..))*"/>-->
-<!--            <aop:before method="before" pointcut-ref="moocPointcut"/>-->
-<!--        </aop:aspect>-->
+    <!--    <aop:config>-->
+    <!--        <aop:aspect id="moocAspectAop" ref="moocAspect">-->
+    <!--            <aop:pointcut id="moocPointcut" expression="execution(* unused.aop_config.*Biz.*(..))*"/>-->
+    <!--            <aop:before method="before" pointcut-ref="moocPointcut"/>-->
+    <!--        </aop:aspect>-->
 
-<!--    </aop:config>-->
+    <!--    </aop:config>-->
 
-<!--4. AOP 面向切面的编程
-    4.1 Spring 框架的 AOP
-        a.面向方面的编程需要把程序逻辑分解成不同的部分称为所谓的关注点。
-        跨一个应用程序的多个点的功能被称为横切关注点，这些横切关注点在概念上独立于应用程序的业务逻辑。
-        有各种各样的常见的很好的方面的例子，如日志记录、审计、声明式事务、安全性和缓存等。
-        b.在 OOP 中，关键单元模块度是类，而在 AOP 中单元模块度是方面。依赖注入帮助你对应用程序对象相互解耦和AOP可以帮助
-        你从它们所影响的对象中对横切关注点解耦。AOP是像编程语言的触发物，如 Perl，.NET，Java 或者其他。
-        c.Spring AOP 模块提供拦截器来拦截一个应用程序，例如，当执行一个方法时，你可以在方法执行之前或之后添加额外的功能。
-    4.2 AOP 术语
-        项	            描述
-        Aspect	        一个模块具有一组提供横切需求的APIs。例如，一个日志模块为了记录日志将被AOP方面调用。
-                        应用程序可以拥有任意数量的方面，这取决于需求。
-        Join point	    在你的应用程序中它代表一个点，你可以在插件 AOP 方面。你也能说，它是在实际的应用程序中，
-                        其中一个操作将使用 Spring AOP 框架。
-        Advice	        这是实际行动之前或之后执行的方法。这是在程序执行期间通过 Spring AOP 框架实际被调用的代码。
-        Pointcut	    这是一组一个或多个连接点，通知应该被执行。你可以使用表达式或模式指定切入点
-                        正如我们将在AOP的例子中看到的。
-        Introduction	引用允许你添加新方法或属性到现有的类中。
-        Target object	被一个或者多个方面所通知的对象，这个对象永远是一个被代理对象。也称为被通知对象。
-        Weaving	        Weaving把方面连接到其它的应用程序类型或者对象上，并创建一个被通知的对象。
-                        这些可以在编译时，类加载时和运行时完成。
+    <!--4. AOP 面向切面的编程
+        4.1 Spring 框架的 AOP
+            a.面向方面的编程需要把程序逻辑分解成不同的部分称为所谓的关注点。
+            跨一个应用程序的多个点的功能被称为横切关注点，这些横切关注点在概念上独立于应用程序的业务逻辑。
+            有各种各样的常见的很好的方面的例子，如日志记录、审计、声明式事务、安全性和缓存等。
+            b.在 OOP 中，关键单元模块度是类，而在 AOP 中单元模块度是方面。依赖注入帮助你对应用程序对象相互解耦和AOP可以帮助
+            你从它们所影响的对象中对横切关注点解耦。AOP是像编程语言的触发物，如 Perl，.NET，Java 或者其他。
+            c.Spring AOP 模块提供拦截器来拦截一个应用程序，例如，当执行一个方法时，你可以在方法执行之前或之后添加额外的功能。
+            4.1.1 AOP 术语
+                项	            描述
+                Aspect	        一个模块具有一组提供横切需求的APIs。例如，一个日志模块为了记录日志将被AOP方面调用。
+                                应用程序可以拥有任意数量的方面，这取决于需求。
+                Join point	    在你的应用程序中它代表一个点，你可以在插件 AOP 方面。你也能说，它是在实际的应用程序中，
+                                其中一个操作将使用 Spring AOP 框架。
+                Advice	        这是实际行动之前或之后执行的方法。这是在程序执行期间通过 Spring AOP 框架实际被调用的代码。
+                Pointcut	    这是一组一个或多个连接点，通知应该被执行。你可以使用表达式或模式指定切入点
+                                正如我们将在AOP的例子中看到的。
+                Introduction	引用允许你添加新方法或属性到现有的类中。
+                Target object	被一个或者多个方面所通知的对象，这个对象永远是一个被代理对象。也称为被通知对象。
+                Weaving	        Weaving把方面连接到其它的应用程序类型或者对象上，并创建一个被通知的对象。
+                                这些可以在编译时，类加载时和运行时完成。
 
-    4.3 通知类型
-            Spring 方面可以使用下面提到的五种通知工作：
-        通知	            描述
-        前置通知	        在一个方法执行之前，执行通知。
-        后置通知	        在一个方法执行之后，不考虑其结果，执行通知。
-        返回后通知	    在一个方法执行之后，只有在方法成功完成时，才能执行通知。
-        抛出异常后通知	在一个方法执行之后，只有在方法退出抛出异常时，才能执行通知。
-        环绕通知	        在建议方法调用之前和之后，执行通知。
+            4.2.2 通知类型
+                    Spring 方面可以使用下面提到的五种通知工作：
+                通知	            描述
+                前置通知	        在一个方法执行之前，执行通知。
+                后置通知	        在一个方法执行之后，不考虑其结果，执行通知。
+                返回后通知	    在一个方法执行之后，只有在方法成功完成时，才能执行通知。
+                抛出异常后通知	在一个方法执行之后，只有在方法退出抛出异常时，才能执行通知。
+                环绕通知	        在建议方法调用之前和之后，执行通知。
 
-    4.4 实现切面的方式
-            Spring支持@AspectJ annotation style 的方法和基于模式的方法来实现自定义方面。
-        这两种方法已经在下面两个子节进行了详细解释。
-        方法	                        描述
-        XML Schema based	        方面是使用常规类以及基于配置的 XML 来实现的。
-        @AspectJ based	            @AspectJ 引用一种声明方面的风格作为带有 Java 5 注释的常规 Java 类注释。
--->
+            4.2.3 实现切面的方式
+                    Spring支持@AspectJ annotation style 的方法和基于模式的方法来实现自定义方面。
+                这两种方法已经在下面两个子节进行了详细解释。
+                方法	                        描述
+                XML Schema based	        方面是使用常规类以及基于配置的 XML 来实现的。
+                @AspectJ based	            @AspectJ 引用一种声明方面的风格作为带有 Java 5 注释的常规 Java 类注释。
+    -->
+
+    <!--4.2 Spring 中基于 AOP 的 XML架构
+        一个切入点有助于确定使用不同建议执行的感兴趣的连接点（即方法）。
+        在处理基于配置的 XML 架构时，切入点将会按照如下所示定义：-->
+    <!--4.2.1声明一个aspect-->
+    <!--    <aop:config>-->
+    <!--        <aop:aspect id="myAspect" ref="aBean">-->
+    <!--            ...-->
+    <!--        </aop:aspect>-->
+    <!--    </aop:config>-->
+
+    <!--4.2.2声明一个切入点-->
+    <!--    <aop:config>-->
+    <!--        <aop:aspect id="myAspect" ref="aBean">-->
+    <!--            <aop:pointcut id="businessService"-->
+    <!--                          expression="execution(* com.tutorialspoint.Student.getName(..))"/>-->
+    <!--            ...-->
+    <!--        </aop:aspect>-->
+    <!--    </aop:config>-->
+
+    <!--一个标准的AOP完整写法-->
+    <!--    <aop:config>-->
+    <!--        <aop:aspect id="myAspect" ref="aBean">-->
+    <!--            <aop:pointcut id="businessService"-->
+    <!--                          expression="execution(* com.xyz.myapp.service.*.*(..))"/>-->
+                <!-- a before advice definition -->
+    <!--            <aop:before pointcut-ref="businessService"-->
+    <!--                        method="doRequiredTask"/>-->
+                <!-- an after advice definition -->
+    <!--            <aop:after pointcut-ref="businessService"-->
+    <!--                       method="doRequiredTask"/>-->
+                <!-- an after-returning advice definition -->
+                <!--The doRequiredTask method must have parameter named retVal -->
+    <!--            <aop:after-returning pointcut-ref="businessService"-->
+    <!--                                 returning="retVal"-->
+    <!--                                 method="doRequiredTask"/>-->
+                <!-- an after-throwing advice definition -->
+                <!--The doRequiredTask method must have parameter named ex -->
+    <!--            <aop:after-throwing pointcut-ref="businessService"-->
+    <!--                                throwing="ex"-->
+    <!--                                method="doRequiredTask"/>-->
+                <!-- an around advice definition -->
+    <!--            <aop:around pointcut-ref="businessService"-->
+    <!--                        method="doRequiredTask"/>-->
+    <!--            ...-->
+    <!--        </aop:aspect>-->
+    <!--    </aop:config>-->
+
+
 </beans>

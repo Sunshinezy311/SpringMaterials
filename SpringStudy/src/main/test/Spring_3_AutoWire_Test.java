@@ -2,6 +2,7 @@ import autowire.byname.AutoWireByNameMain;
 import autowire.bytype.AutoWireByTypeMain;
 import autowire.constructor.AutoWiredByConstructorMain;
 import org.junit.Test;
+import tools.PubUtil;
 
 public class Spring_3_AutoWire_Test extends PubUtil {
     public Spring_3_AutoWire_Test() {

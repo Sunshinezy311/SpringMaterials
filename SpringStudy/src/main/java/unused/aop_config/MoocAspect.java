@@ -1,4 +1,4 @@
-package aop.aop_config;
+package unused.aop_config;
 
 public class MoocAspect {
     public void before(){

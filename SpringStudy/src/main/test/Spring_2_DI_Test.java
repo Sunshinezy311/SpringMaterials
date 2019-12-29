@@ -3,6 +3,7 @@ import di.applications_dl.InnerBeansDiMain;
 import di.constructor_di.ConstructDiMain;
 import di.setter_di.SetterDiMian;
 import org.junit.Test;
+import tools.PubUtil;
 
 public class Spring_2_DI_Test extends PubUtil {
     public Spring_2_DI_Test() {

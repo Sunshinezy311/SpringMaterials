@@ -1,3 +1,5 @@
+package tools;
+
 import org.junit.After;
 import org.junit.Before;
 import org.springframework.beans.BeansException;
@@ -16,7 +18,7 @@ public class PubUtil {
 
      */
     private ClassPathXmlApplicationContext context;
-    PubUtil(String xmlPath) {
+    public PubUtil(String xmlPath) {
         try {
             context = new ClassPathXmlApplicationContext(xmlPath.split("[,\\s]+"));
             context.start();
@@ -33,7 +35,7 @@ public class PubUtil {
 
 
     @SuppressWarnings("unchecked")
-    <T> T getBean(String beanId) {
+    public <T> T getBean(String beanId) {
         try {
             return (T) context.getBean(beanId);
         } catch (BeansException e) {

@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--    注意如果需要加入切面特性的话，则必须在 xsi:schemaLocation中加入
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        这三个链接否则会报错:"cvc-complex-type.2.4.c: 通配符的匹配很全面, 但无法找到元素 'aop:config' 的声明。"-->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd ">
 
     <!--    <bean id="moocAspect" class="unused.aop_config.MoocAspect"/>-->
     <!--    <bean id="aspectBiz" class="unused.aop_config.AspectBiz"/>-->
@@ -79,28 +87,50 @@
     <!--        <aop:aspect id="myAspect" ref="aBean">-->
     <!--            <aop:pointcut id="businessService"-->
     <!--                          expression="execution(* com.xyz.myapp.service.*.*(..))"/>-->
-                <!-- a before advice definition -->
+    <!-- a before advice definition -->
     <!--            <aop:before pointcut-ref="businessService"-->
     <!--                        method="doRequiredTask"/>-->
-                <!-- an after advice definition -->
+    <!-- an after advice definition -->
     <!--            <aop:after pointcut-ref="businessService"-->
     <!--                       method="doRequiredTask"/>-->
-                <!-- an after-returning advice definition -->
-                <!--The doRequiredTask method must have parameter named retVal -->
+    <!-- an after-returning advice definition -->
+    <!--The doRequiredTask method must have parameter named retVal -->
     <!--            <aop:after-returning pointcut-ref="businessService"-->
     <!--                                 returning="retVal"-->
     <!--                                 method="doRequiredTask"/>-->
-                <!-- an after-throwing advice definition -->
-                <!--The doRequiredTask method must have parameter named ex -->
+    <!-- an after-throwing advice definition -->
+    <!--The doRequiredTask method must have parameter named ex -->
     <!--            <aop:after-throwing pointcut-ref="businessService"-->
     <!--                                throwing="ex"-->
     <!--                                method="doRequiredTask"/>-->
-                <!-- an around advice definition -->
+    <!-- an around advice definition -->
     <!--            <aop:around pointcut-ref="businessService"-->
     <!--                        method="doRequiredTask"/>-->
     <!--            ...-->
     <!--        </aop:aspect>-->
     <!--    </aop:config>-->
+    <aop:config>
+        <aop:aspect id="log" ref="logging">
+            <aop:pointcut id="selectAll" expression="execution(* aop.xmlbased.*.*(..))"/>
+            <aop:before pointcut-ref="selectAll" method="beforeAdvice"/>
+            <aop:after pointcut-ref="selectAll" method="afterAdvice"/>
+            <aop:after-returning pointcut-ref="selectAll" returning="retVal" method="afterReturningAdvice"/>
+            <aop:after-throwing pointcut-ref="selectAll" throwing="ex" method="AfterThrowingAdvice"/>
+        </aop:aspect>
+    </aop:config>
 
+    <!-- 这里定义了目标业务类的位置 -->
+    <bean id="student" class="aop.xmlbased.Student">
+        <property name="name" value="Zara"/>
+        <property name="age" value="11"/>
+    </bean>
+
+    <!-- 这里定义了切片的处理类的位置 -->
+    <bean id="logging" class="aop.xmlbased.Logging"/>
+
+
+    <!--4.3 Spring 中基于 AOP 的 @AspectJ-->
+<!--    -->
+    <aop:aspectj-autoproxy/>
 
 </beans>

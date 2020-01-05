@@ -77,12 +77,12 @@
     <!--    <aop:config>-->
     <!--        <aop:aspect id="myAspect" ref="aBean">-->
     <!--            <aop:pointcut id="businessService"-->
-    <!--                          expression="execution(* com.tutorialspoint.Student.getName(..))"/>-->
+    <!--                          expression="execution(* com.tutorialspoint.XmlStudent.getName(..))"/>-->
     <!--            ...-->
     <!--        </aop:aspect>-->
     <!--    </aop:config>-->
 
-    <!--一个标准的AOP完整写法-->
+    <!--一套标准的AOP完整写法-->
     <!--    <aop:config>-->
     <!--        <aop:aspect id="myAspect" ref="aBean">-->
     <!--            <aop:pointcut id="businessService"-->
@@ -110,27 +110,35 @@
     <!--        </aop:aspect>-->
     <!--    </aop:config>-->
     <aop:config>
-        <aop:aspect id="log" ref="logging">
-            <aop:pointcut id="selectAll" expression="execution(* aop.xmlbased.*.*(..))"/>
-            <aop:before pointcut-ref="selectAll" method="beforeAdvice"/>
-            <aop:after pointcut-ref="selectAll" method="afterAdvice"/>
-            <aop:after-returning pointcut-ref="selectAll" returning="retVal" method="afterReturningAdvice"/>
-            <aop:after-throwing pointcut-ref="selectAll" throwing="ex" method="AfterThrowingAdvice"/>
+        <aop:aspect id="xmlLog" ref="xmlLog">
+            <aop:pointcut id="xmlSelectAll" expression="execution(* aop.by_1_xml.*.*(..))"/>
+            <aop:before pointcut-ref="xmlSelectAll" method="beforeAdvice"/>
+            <aop:after pointcut-ref="xmlSelectAll" method="afterAdvice"/>
+            <aop:after-returning pointcut-ref="xmlSelectAll" returning="retVal" method="afterReturningAdvice"/>
+            <!--AfterThrowingAdvice注意该方法首字母大写了，因为方法名不规范所致-->
+            <aop:after-throwing pointcut-ref="xmlSelectAll" throwing="ex" method="AfterThrowingAdvice"/>
         </aop:aspect>
     </aop:config>
 
     <!-- 这里定义了目标业务类的位置 -->
-    <bean id="student" class="aop.xmlbased.Student">
-        <property name="name" value="Zara"/>
-        <property name="age" value="11"/>
+    <bean id="xmlStudent" class="aop.by_1_xml.XmlStudent">
+        <property name="name" value="XmlStudent"/>
+        <property name="age" value="10"/>
     </bean>
 
     <!-- 这里定义了切片的处理类的位置 -->
-    <bean id="logging" class="aop.xmlbased.Logging"/>
+    <bean id="xmlLog" class="aop.by_1_xml.XmlLogging"/>
 
 
     <!--4.3 Spring 中基于 AOP 的 @AspectJ-->
-<!--    -->
+    <!--用于标识面向切片的处理-->
     <aop:aspectj-autoproxy/>
+    <!-- 这里定义了目标业务类的位置 -->
+    <bean id="aspectJStudent" class="aop.by_2_aspectj.AspectJStudent">
+        <property name="name"  value="aspectJStudent" />
+        <property name="age"  value="11"/>
+    </bean>
 
+    <!-- 这里定义了切片的处理类的位置 -->
+    <bean id="aspectJLogging" class="aop.by_2_aspectj.AspectJLogging"/>
 </beans>

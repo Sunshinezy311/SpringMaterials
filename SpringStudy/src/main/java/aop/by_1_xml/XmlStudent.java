@@ -1,6 +1,6 @@
-package aop.xmlbased;
+package aop.by_1_xml;
 
-public class Student {
+public class XmlStudent {
     private Integer age;
     private String name;
 

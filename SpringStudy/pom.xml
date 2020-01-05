@@ -27,8 +27,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!--    <maven.compiler.source>1.7</maven.compiler.source>-->
-        <!--    <maven.compiler.target>1.7</maven.compiler.target>-->
+            <maven.compiler.source>1.8</maven.compiler.source>
+            <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -65,10 +65,24 @@
 
         <!--aspectJ 如果没有这个插件，在静态编译时不会报错，但是执行时会报
         NoClassDefFoundError: org/aspectj/weaver/reflect/ReflectionWorld$ReflectionWorldException -->
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.8.4</version>
+            <version>1.9.5</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/aopalliance/aopalliance -->
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+            <version>1.0</version>
         </dependency>
 
     </dependencies>

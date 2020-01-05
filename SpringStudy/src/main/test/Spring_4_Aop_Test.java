@@ -1,4 +1,5 @@
-import aop.xmlbased.Student;
+import aop.by_1_xml.XmlStudent;
+import aop.by_2_aspectj.AspectJStudent;
 import org.junit.Test;
 import tools.PubUtil;
 
@@ -9,12 +10,23 @@ public class Spring_4_Aop_Test extends PubUtil {
 
     @Test(expected = IllegalArgumentException.class)
     public void test_xml_based_aop() {
-        Student student = (Student) getBean("student");
+        XmlStudent xmlStudent = (XmlStudent) getBean("xmlStudent");
         System.out.println("----------------------------");
-        student.getName();
+        xmlStudent.getName();
         System.out.println("----------------------------");
-        student.getAge();
+        xmlStudent.getAge();
         System.out.println("----------------------------");
-        student.printThrowException();
+        xmlStudent.printThrowException();
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void test_aspectj_based_aop() {
+        AspectJStudent aspectJStudent = (AspectJStudent) getBean("aspectJStudent");
+        System.out.println("----------------------------");
+        aspectJStudent.getName();
+        System.out.println("----------------------------");
+        aspectJStudent.getAge();
+        System.out.println("----------------------------");
+        aspectJStudent.printThrowException();
     }
 }

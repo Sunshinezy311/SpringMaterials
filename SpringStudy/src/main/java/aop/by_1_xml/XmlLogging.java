@@ -1,6 +1,6 @@
-package aop.xmlbased;
+package aop.by_1_xml;
 
-public class Logging {
+public class XmlLogging {
     /**
      * This is the method which I would like to execute
      * before a selected method execution.

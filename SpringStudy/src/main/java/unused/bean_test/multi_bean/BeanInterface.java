@@ -1,4 +1,4 @@
-package bean_test.multi_bean;
+package unused.bean_test.multi_bean;
 
 public interface BeanInterface {
 }

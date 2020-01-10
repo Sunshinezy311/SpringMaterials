@@ -1,6 +1,6 @@
-package bean_test.bean_in_code;
+package unused.bean_test.bean_in_code;
 
-import bean_test.bean_load_resfiles.MyDriverManager;
+import unused.bean_test.bean_load_resfiles.MyDriverManager;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package bean_test.bean_in_code;
+package unused.bean_test.bean_in_code;
 
 
 public class StringStrore implements Store {

@@ -1,4 +1,4 @@
-package bean_test.genericity_autowired;
+package unused.bean_test.genericity_autowired;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

@@ -1,5 +1,5 @@
-import bean_test.bean_context.BeanAnnotation;
-import bean_test.multi_bean.BeanInvoker;
+import unused.bean_test.bean_context.BeanAnnotation;
+import unused.bean_test.multi_bean.BeanInvoker;
 import ioc.springtest.AutoWiringService;
 import ioc.springtest.Test2Class;
 import ioc.springtest.TestClass;

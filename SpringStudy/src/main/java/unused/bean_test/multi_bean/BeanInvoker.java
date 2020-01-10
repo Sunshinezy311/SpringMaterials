@@ -1,4 +1,4 @@
-package bean_test.multi_bean;
+package unused.bean_test.multi_bean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

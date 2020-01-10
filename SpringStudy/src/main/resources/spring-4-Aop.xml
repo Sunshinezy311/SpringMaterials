@@ -82,36 +82,12 @@
     <!--        </aop:aspect>-->
     <!--    </aop:config>-->
 
-    <!--一套标准的AOP完整写法-->
-    <!--    <aop:config>-->
-    <!--        <aop:aspect id="myAspect" ref="aBean">-->
-    <!--            <aop:pointcut id="businessService"-->
-    <!--                          expression="execution(* com.xyz.myapp.service.*.*(..))"/>-->
-    <!-- a before advice definition -->
-    <!--            <aop:before pointcut-ref="businessService"-->
-    <!--                        method="doRequiredTask"/>-->
-    <!-- an after advice definition -->
-    <!--            <aop:after pointcut-ref="businessService"-->
-    <!--                       method="doRequiredTask"/>-->
-    <!-- an after-returning advice definition -->
-    <!--The doRequiredTask method must have parameter named retVal -->
-    <!--            <aop:after-returning pointcut-ref="businessService"-->
-    <!--                                 returning="retVal"-->
-    <!--                                 method="doRequiredTask"/>-->
-    <!-- an after-throwing advice definition -->
-    <!--The doRequiredTask method must have parameter named ex -->
-    <!--            <aop:after-throwing pointcut-ref="businessService"-->
-    <!--                                throwing="ex"-->
-    <!--                                method="doRequiredTask"/>-->
-    <!-- an around advice definition -->
-    <!--            <aop:around pointcut-ref="businessService"-->
-    <!--                        method="doRequiredTask"/>-->
-    <!--            ...-->
-    <!--        </aop:aspect>-->
-    <!--    </aop:config>-->
     <aop:config>
         <aop:aspect id="xmlLog" ref="xmlLog">
-            <aop:pointcut id="xmlSelectAll" expression="execution(* aop.by_1_xml.*.*(..))"/>
+            <!--该execution可以精确到每一个类中的方法，也可以发现，该execution包含的路径中可能有切面本身的业务代码，
+            但是spring可以自动识别。-->
+            <!--<aop:pointcut id="xmlSelectAll" expression="execution(* aop.by_1_xml.*.*(..))"/>-->
+            <aop:pointcut id="xmlSelectAll" expression="execution(* aop.by_1_xml.XmlStudent.*(..))"/>
             <aop:before pointcut-ref="xmlSelectAll" method="beforeAdvice"/>
             <aop:after pointcut-ref="xmlSelectAll" method="afterAdvice"/>
             <aop:after-returning pointcut-ref="xmlSelectAll" returning="retVal" method="afterReturningAdvice"/>

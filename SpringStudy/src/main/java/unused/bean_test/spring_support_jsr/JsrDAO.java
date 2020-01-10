@@ -1,4 +1,4 @@
-package bean_test.spring_support_jsr;
+package unused.bean_test.spring_support_jsr;
 
 import org.springframework.stereotype.Repository;
 

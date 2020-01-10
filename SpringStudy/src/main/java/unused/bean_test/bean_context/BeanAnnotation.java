@@ -1,4 +1,4 @@
-package bean_test.bean_context;
+package unused.bean_test.bean_context;
 
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package bean_test.bean_load_resfiles;
+package unused.bean_test.bean_load_resfiles;
 
 public class MyDriverManager {
 

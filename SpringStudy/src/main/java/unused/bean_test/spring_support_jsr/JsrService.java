@@ -1,4 +1,4 @@
-package bean_test.spring_support_jsr;
+package unused.bean_test.spring_support_jsr;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

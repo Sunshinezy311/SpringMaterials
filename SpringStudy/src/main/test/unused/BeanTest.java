@@ -1,17 +1,12 @@
 package unused;
 
-import ioc.springtest.AutoWiringService;
-import ioc.springtest.Test2Class;
-import ioc.springtest.TestClass;
-import bean_test.bean_context.BeanAnnotation;
-import bean_test.bean_in_code.Store;
-import bean_test.bean_load_resfiles.MyDriverManager;
-import bean_test.genericity_autowired.Store1;
-import bean_test.multi_bean.BeanInvoker;
+import unused.bean_test.bean_in_code.Store;
+import unused.bean_test.bean_load_resfiles.MyDriverManager;
+import unused.bean_test.genericity_autowired.Store1;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
-import bean_test.spring_support_jsr.JsrService;
+import unused.bean_test.spring_support_jsr.JsrService;
 import tools.PubUtil;
 
 @RunWith(BlockJUnit4ClassRunner.class)
@@ -22,7 +17,7 @@ public class BeanTest extends PubUtil {
 
     @Test
     public void testBeanInConfig() {
-        //注意，需要加    <context:component-scan base-package="bean_test.bean_in_code"/> 否则spring也不知道你要扫哪里
+        //注意，需要加    <context:component-scan base-package="unused.bean_test.bean_in_code"/> 否则spring也不知道你要扫哪里
         Store store = super.getBean("getStringStore");
         System.out.println(store.getClass().getName());
     }

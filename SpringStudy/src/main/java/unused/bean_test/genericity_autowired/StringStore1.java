@@ -1,4 +1,4 @@
-package bean_test.genericity_autowired;
+package unused.bean_test.genericity_autowired;
 
 //注意泛型的接口实现
 public class StringStore1 implements Store1<String> {

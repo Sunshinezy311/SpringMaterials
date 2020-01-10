@@ -14,7 +14,7 @@
     d. 在Spring中BeanFactory是IOC容器的实际代表者。-->
 
     <!--注意！！使用了context后无需使用bean来加载，否则会导致找不到该类！！-->
-    <!--    <bean class="bean_test.multi_bean.BeanImpl1">-->
+    <!--    <bean class="unused.bean_test.multi_bean.BeanImpl1">-->
     <!--        <qualifier value="beanImpl1"/>-->
     <!--    </bean>-->
     <bean id="test1" class="ioc.springtest.TestClass"/>

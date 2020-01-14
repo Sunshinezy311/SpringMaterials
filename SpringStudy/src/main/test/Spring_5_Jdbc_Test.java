@@ -11,26 +11,33 @@ public class Spring_5_Jdbc_Test extends PubUtil {
     }
 
     @Test
-    public void test_jdbc_functions(){
+    public void test_jdbc_functions() {
         StudentJDBCTemplate studentJDBCTemplate =
                 (StudentJDBCTemplate) getBean("studentJDBCTemplate");
-        System.out.println("------Records Creation--------" );
-        studentJDBCTemplate.create("Zara", 11);
-        studentJDBCTemplate.create("Nuha", 2);
-        studentJDBCTemplate.create("Ayan", 15);
-        System.out.println("------Listing Multiple Records--------" );
+        System.out.println("------Records Creation--------");
+        studentJDBCTemplate.create(1, "Zara", 11);
+        studentJDBCTemplate.create(2, "Nuha", 2);
+        studentJDBCTemplate.create(3, "Ayan", 15);
+        System.out.println("------Listing Multiple Records--------");
         List<JDBCStudent> JDBCStudents = studentJDBCTemplate.listStudents();
         for (JDBCStudent record : JDBCStudents) {
-            System.out.print("ID : " + record.getId() );
-            System.out.print(", Name : " + record.getName() );
+            System.out.print("ID : " + record.getId());
+            System.out.print(", Name : " + record.getName());
             System.out.println(", Age : " + record.getAge());
         }
-        System.out.println("----Updating Record with ID = 2 -----" );
+        System.out.println("----Updating Record with ID = 2 -----");
         studentJDBCTemplate.update(2, 20);
-        System.out.println("----Listing Record with ID = 2 -----" );
+        System.out.println("----Listing Record with ID = 2 -----");
         JDBCStudent JDBCStudent = studentJDBCTemplate.getStudent(2);
-        System.out.print("ID : " + JDBCStudent.getId() );
-        System.out.print(", Name : " + JDBCStudent.getName() );
+        System.out.print("ID : " + JDBCStudent.getId());
+        System.out.print(", Name : " + JDBCStudent.getName());
         System.out.println(", Age : " + JDBCStudent.getAge());
+
+        System.out.println("----Listing Inited Table -----");
+        studentJDBCTemplate.initTable();
+        JDBCStudents = studentJDBCTemplate.listStudents();
+        if (JDBCStudents.size() == 0) {
+            System.out.println("The Tbale Student is empty!");
+        }
     }
 }

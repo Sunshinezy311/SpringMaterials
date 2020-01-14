@@ -12,12 +12,20 @@ public class StudentJDBCTemplate implements StudentDAO {
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
+        init(jdbcTemplateObject);
     }
 
-    public void create(String name, Integer age) {
-        String SQL = "insert into Student (name, age) values (?, ?)";
-        jdbcTemplateObject.update(SQL, name, age);
-        System.out.println("Created Record Name = " + name + " Age = " + age);
+    public void init(JdbcTemplate jdbcTemplateObject) {
+        String dropDataBaseSQL = "drop table if exists TEST.Student";
+        jdbcTemplateObject.update(dropDataBaseSQL);
+        String createTableSql = "create table TEST.Student (id int(11), name VARCHAR(255), age int(11))";
+        jdbcTemplateObject.update(createTableSql);
+    }
+
+    public void create(Integer id, String name, Integer age) {
+        String SQL = "insert into Student (id, name, age) values (?, ?, ?)";
+        jdbcTemplateObject.update(SQL, id, name, age);
+        System.out.println("Created Record ID = " + id + "Name = " + name + " Age = " + age);
         return;
     }
 
@@ -47,5 +55,10 @@ public class StudentJDBCTemplate implements StudentDAO {
         jdbcTemplateObject.update(SQL, age, id);
         System.out.println("Updated Record with ID = " + id);
         return;
+    }
+
+    public void initTable() {
+        String SQL = "truncate table TEST.Student";
+        jdbcTemplateObject.update(SQL);
     }
 }

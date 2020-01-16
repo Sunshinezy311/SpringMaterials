@@ -15,9 +15,9 @@ public class Spring_5_Jdbc_Test extends PubUtil {
         StudentJDBCTemplate studentJDBCTemplate =
                 (StudentJDBCTemplate) getBean("studentJDBCTemplate");
         System.out.println("------Records Creation--------");
-        studentJDBCTemplate.create(1, "Zara", 11);
-        studentJDBCTemplate.create(2, "Nuha", 2);
-        studentJDBCTemplate.create(3, "Ayan", 15);
+        studentJDBCTemplate.create("Zara", 11);
+        studentJDBCTemplate.create("Nuha", 2);
+        studentJDBCTemplate.create("Ayan", 15);
         System.out.println("------Listing Multiple Records--------");
         List<JDBCStudent> JDBCStudents = studentJDBCTemplate.listStudents();
         for (JDBCStudent record : JDBCStudents) {

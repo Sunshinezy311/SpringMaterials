@@ -15,17 +15,25 @@ public class StudentJDBCTemplate implements StudentDAO {
         init(jdbcTemplateObject);
     }
 
+    // show tables from TEST;
+    // drop table TEST.student;
+    // show columns from TEST.Student;
     public void init(JdbcTemplate jdbcTemplateObject) {
         String dropDataBaseSQL = "drop table if exists TEST.Student";
         jdbcTemplateObject.update(dropDataBaseSQL);
-        String createTableSql = "create table TEST.Student (id int(11), name VARCHAR(255), age int(11))";
+        String createTableSql = "create table TEST.Student(\n" +
+                "   id int not null auto_increment,\n" +
+                "   name varchar(20) not null,\n" +
+                "   age int not null,\n" +
+                "   primary key (id)\n" +
+                ")";
         jdbcTemplateObject.update(createTableSql);
     }
 
-    public void create(Integer id, String name, Integer age) {
-        String SQL = "insert into Student (id, name, age) values (?, ?, ?)";
-        jdbcTemplateObject.update(SQL, id, name, age);
-        System.out.println("Created Record ID = " + id + "Name = " + name + " Age = " + age);
+    public void create(String name, Integer age) {
+        String SQL = "insert into Student (name, age) values (?, ?)";
+        jdbcTemplateObject.update(SQL, name, age);
+        System.out.println("Created Record Name = " + name + " Age = " + age);
         return;
     }
 

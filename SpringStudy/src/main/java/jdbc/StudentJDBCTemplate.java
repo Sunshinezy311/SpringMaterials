@@ -27,6 +27,7 @@ public class StudentJDBCTemplate implements StudentDAO {
                 "   age int not null,\n" +
                 "   primary key (id)\n" +
                 ")";
+        System.out.println(createTableSql);
         jdbcTemplateObject.update(createTableSql);
     }
 

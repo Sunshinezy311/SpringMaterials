@@ -1,4 +1,4 @@
-package transaction.programmatic;
+package transaction.reputation;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -20,5 +20,5 @@ public interface StudentDAO {
      * This is the method to be used to list down
      * all the records from the Student and Marks tables.
      */
-    public List<ProgStudentMarks> listStudents();
+    public List<RepStudentMarks> listStudents();
 }

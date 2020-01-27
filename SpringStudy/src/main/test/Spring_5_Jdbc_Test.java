@@ -2,6 +2,10 @@ import jdbc.JDBCStudent;
 import jdbc.StudentJDBCTemplate;
 import org.junit.Test;
 import tools.PubUtil;
+import transaction.programmatic.ProgStudentMarks;
+import transaction.programmatic.StdProgTransJdbcTemp;
+import transaction.reputation.RepStudentMarks;
+import transaction.reputation.StdRepTransJdbcTemp;
 
 import java.util.List;
 
@@ -38,6 +42,47 @@ public class Spring_5_Jdbc_Test extends PubUtil {
         JDBCStudents = studentJDBCTemplate.listStudents();
         if (JDBCStudents.size() == 0) {
             System.out.println("The Tbale Student is empty!");
+        }
+    }
+
+    //编程式事务管理
+    @Test
+    public void test_programmatic_transaction_management() {
+        StdProgTransJdbcTemp stdProgTransJdbcTemp =
+                (StdProgTransJdbcTemp) getBean("stdProgTransJdbcTemp");
+        System.out.println("------Records creation--------");
+        stdProgTransJdbcTemp.create("Zara", 11, 99, 2010);
+        stdProgTransJdbcTemp.create("Nuha", 20, 97, 2010);
+        stdProgTransJdbcTemp.create("Ayan", 25, 100, 2011);
+        System.out.println("------Listing all the records--------");
+        List<ProgStudentMarks> progStudentMarks = stdProgTransJdbcTemp.listStudents();
+        for (ProgStudentMarks record : progStudentMarks) {
+            System.out.print("ID : " + record.getId());
+            System.out.print(", Name : " + record.getName());
+            System.out.print(", Marks : " + record.getMarks());
+            System.out.print(", Year : " + record.getYear());
+            System.out.println(", Age : " + record.getAge());
+        }
+    }
+
+
+    //声名式事务管理
+    @Test(expected = RuntimeException.class)
+    public void test_reputaion_transaction_management() {
+        StdRepTransJdbcTemp stdRepTransJdbcTemp =
+                (StdRepTransJdbcTemp) getBean("stdRepTransJdbcTemp");
+        System.out.println("------Records creation--------");
+        stdRepTransJdbcTemp.create("Zara", 11, 99, 2010);
+        stdRepTransJdbcTemp.create("Nuha", 20, 97, 2010);
+        stdRepTransJdbcTemp.create("Ayan", 25, 100, 2011);
+        System.out.println("------Listing all the records--------");
+        List<RepStudentMarks> repStudentMarks = stdRepTransJdbcTemp.listStudents();
+        for (RepStudentMarks record : repStudentMarks) {
+            System.out.print("ID : " + record.getId());
+            System.out.print(", Name : " + record.getName());
+            System.out.print(", Marks : " + record.getMarks());
+            System.out.print(", Year : " + record.getYear());
+            System.out.println(", Age : " + record.getAge());
         }
     }
 }

@@ -32,18 +32,18 @@ public class StdRepTransJdbcTemp {
         // show tables from TEST;
         // drop table TEST.student;
         // show columns from TEST.Student;
-        String createTableSql = "drop table if exists TEST.Student; \n" +
-                "CREATE TABLE TEST.Student(\n" +
-                "   ID INT NOT NULL AUTO_INCREMENT, \n" +
-                "   NAME VARCHAR(20) NOT NULL, \n" +
-                "   AGE INT NOT NULL, \n" +
-                "   PRIMARY KEY (ID) \n" +
+        String createTableSql = "drop table if exists test.student; \n" +
+                "create table test.student(\n" +
+                "   id int not null auto_increment, \n" +
+                "   name varchar(20) not null, \n" +
+                "   age int not null, \n" +
+                "   primary key (id) \n" +
                 ");" +
-                "drop table if exists TEST.Marks; \n" +
-                "CREATE TABLE TEST.Marks( \n" +
-                "   SID INT NOT NULL, \n" +
-                "   MARKS  INT NOT NULL, \n" +
-                "   YEAR   INT NOT NULL \n" +
+                "drop table if exists test.marks; \n" +
+                "create table test.marks( \n" +
+                "   sid int not null, \n" +
+                "   marks  int not null, \n" +
+                "   year   int not null \n" +
                 ") ";
         System.out.println(createTableSql);
         //批量执行sql用法

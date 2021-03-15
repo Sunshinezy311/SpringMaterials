@@ -12,6 +12,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="aop.by_2_aspectj_2"/>
+    <context:component-scan base-package="f_aop.by_2_aspectj_2"/>
     <aop:aspectj-autoproxy/>
 </beans>

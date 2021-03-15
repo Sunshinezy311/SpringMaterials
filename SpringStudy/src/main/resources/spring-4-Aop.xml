@@ -4,7 +4,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd
-        这三个链接否则会报错:"cvc-complex-type.2.4.c: 通配符的匹配很全面, 但无法找到元素 'aop:config' 的声明。"-->
+        这三个链接否则会报错:"cvc-complex-type.2.4.c: 通配符的匹配很全面, 但无法找到元素 'f_aop:config' 的声明。"-->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
@@ -16,13 +16,13 @@
     <!--    <bean id="moocAspect" class="unused.aop_config.MoocAspect"/>-->
     <!--    <bean id="aspectBiz" class="unused.aop_config.AspectBiz"/>-->
 
-    <!--    <aop:config>-->
-    <!--        <aop:aspect id="moocAspectAop" ref="moocAspect">-->
-    <!--            <aop:pointcut id="moocPointcut" expression="execution(* unused.aop_config.*Biz.*(..))*"/>-->
-    <!--            <aop:before method="before" pointcut-ref="moocPointcut"/>-->
-    <!--        </aop:aspect>-->
+    <!--    <f_aop:config>-->
+    <!--        <f_aop:aspect id="moocAspectAop" ref="moocAspect">-->
+    <!--            <f_aop:pointcut id="moocPointcut" expression="execution(* unused.aop_config.*Biz.*(..))*"/>-->
+    <!--            <f_aop:before method="before" pointcut-ref="moocPointcut"/>-->
+    <!--        </f_aop:aspect>-->
 
-    <!--    </aop:config>-->
+    <!--    </f_aop:config>-->
 
     <!--4. AOP 面向切面的编程
         4.1 Spring 框架的 AOP
@@ -67,27 +67,27 @@
         一个切入点有助于确定使用不同建议执行的感兴趣的连接点（即方法）。
         在处理基于配置的 XML 架构时，切入点将会按照如下所示定义：-->
     <!--4.2.1声明一个aspect-->
-    <!--    <aop:config>-->
-    <!--        <aop:aspect id="myAspect" ref="aBean">-->
+    <!--    <f_aop:config>-->
+    <!--        <f_aop:aspect id="myAspect" ref="aBean">-->
     <!--            ...-->
-    <!--        </aop:aspect>-->
-    <!--    </aop:config>-->
+    <!--        </f_aop:aspect>-->
+    <!--    </f_aop:config>-->
 
     <!--4.2.2声明一个切入点-->
-    <!--    <aop:config>-->
-    <!--        <aop:aspect id="myAspect" ref="aBean">-->
-    <!--            <aop:pointcut id="businessService"-->
+    <!--    <f_aop:config>-->
+    <!--        <f_aop:aspect id="myAspect" ref="aBean">-->
+    <!--            <f_aop:pointcut id="businessService"-->
     <!--                          expression="execution(* com.tutorialspoint.XmlStudent.getName(..))"/>-->
     <!--            ...-->
-    <!--        </aop:aspect>-->
-    <!--    </aop:config>-->
+    <!--        </f_aop:aspect>-->
+    <!--    </f_aop:config>-->
 
     <aop:config>
         <aop:aspect id="xmlLog" ref="xmlLog">
             <!--该execution可以精确到每一个类中的方法，也可以发现，该execution包含的路径中可能有切面本身的业务代码，
             但是spring可以自动识别。-->
-            <!--<aop:pointcut id="xmlSelectAll" expression="execution(* aop.by_1_xml.*.*(..))"/>-->
-            <aop:pointcut id="xmlSelectAll" expression="execution(* aop.by_1_xml.XmlStudent.*(..))"/>
+            <!--<f_aop:pointcut id="xmlSelectAll" expression="execution(* f_aop.by_1_xml.*.*(..))"/>-->
+            <aop:pointcut id="xmlSelectAll" expression="execution(* f_aop.by_1_xml.XmlStudent.*(..))"/>
             <aop:before pointcut-ref="xmlSelectAll" method="beforeAdvice"/>
             <aop:after pointcut-ref="xmlSelectAll" method="afterAdvice"/>
             <aop:after-returning pointcut-ref="xmlSelectAll" returning="retVal" method="afterReturningAdvice"/>
@@ -97,24 +97,24 @@
     </aop:config>
 
     <!-- 这里定义了目标业务类的位置 -->
-    <bean id="xmlStudent" class="aop.by_1_xml.XmlStudent">
+    <bean id="xmlStudent" class="f_aop.by_1_xml.XmlStudent">
         <property name="name" value="XmlStudent"/>
         <property name="age" value="10"/>
     </bean>
 
     <!-- 这里定义了切片的处理类的位置 -->
-    <bean id="xmlLog" class="aop.by_1_xml.XmlLogging"/>
+    <bean id="xmlLog" class="f_aop.by_1_xml.XmlLogging"/>
 
 
     <!--4.3 Spring 中基于 AOP 的 @AspectJ-->
     <!--用于标识面向切片的处理-->
     <aop:aspectj-autoproxy/>
     <!-- 这里定义了目标业务类的位置 -->
-    <bean id="aspectJStudent" class="aop.by_2_aspectj.AspectJStudent">
+    <bean id="aspectJStudent" class="f_aop.by_2_aspectj.AspectJStudent">
         <property name="name"  value="aspectJStudent" />
         <property name="age"  value="11"/>
     </bean>
 
     <!-- 这里定义了切片的处理类的位置 -->
-    <bean id="aspectJLogging" class="aop.by_2_aspectj.AspectJLogging"/>
+    <bean id="aspectJLogging" class="f_aop.by_2_aspectj.AspectJLogging"/>
 </beans>

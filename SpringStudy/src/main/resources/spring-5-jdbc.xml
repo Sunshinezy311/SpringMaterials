@@ -14,14 +14,14 @@
         JDBC 框架负责所有的低层细节，从开始打开连接，准备和执行 SQL 语句，处理异常，处理事务，到最后关闭连接。
         -->
     <!--5.2 JDBC示例-->
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/TEST"/>
+    <bean id="dataSource" class="org.springframework.g_jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.g_jdbc.Driver"/>
+        <property name="url" value="g_jdbc:mysql://localhost:3306/TEST"/>
         <property name="username" value="root"/>
         <property name="password" value="ZYzyZY931215*"/>
     </bean>
     <bean id="studentJDBCTemplate"
-          class="jdbc.StudentJDBCTemplate">
+          class="g_jdbc.StudentJDBCTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
@@ -36,7 +36,7 @@
 
         RDBMS面向企业应用程序，以确保数据完整性和一致性。而一个真正的RDBMS数据库系统将为每个事务保证所有的四个属性。
     使用 SQL 发布到数据库中的事务的简单视图如下：
-        1.使用 begin transaction 命令开始事务。
+        1.使用 begin h_transaction 命令开始事务。
         2.使用 SQL 查询语句执行各种删除、更新或插入操作。
         3.如果所有的操作都成功，则执行提交操作，否则回滚所有操作。
         Spring框架在不同的底层事务管理 APIs的顶部提供了一个抽象层。
@@ -56,7 +56,7 @@
 
     <!--初始化事务管理-->
     <bean id="transactionManager"
-          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+          class="org.springframework.g_jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
@@ -69,7 +69,7 @@
         但作为一种横切关注点，声明式事务管理可以使用 AOP 方法进行模块化。Spring 支持使用 Spring AOP 框架的声明式事务管理。-->
     <!--5.5.1 编程式事务管理-->
     <bean id="stdProgTransJdbcTemp"
-          class="transaction.programmatic.StdProgTransJdbcTemp">
+          class="h_transaction.programmatic.StdProgTransJdbcTemp">
         <property name="dataSource" ref="dataSource"/>
         <property name="transactionManager" ref="transactionManager"/>
     </bean>
@@ -82,15 +82,15 @@
         </tx:attributes>
     </tx:advice>
 
-    <!--  xmlns:aop="http://www.springframework.org/schema/aop"  -->
+    <!--  xmlns:f_aop="http://www.springframework.org/schema/aop"  -->
     <aop:config>
         <aop:pointcut id="createOperation"
-                      expression="execution(* transaction.reputation.StdRepTransJdbcTemp.create(..))"/>
+                      expression="execution(* h_transaction.reputation.StdRepTransJdbcTemp.create(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="createOperation"/>
     </aop:config>
 
     <bean id="stdRepTransJdbcTemp"
-          class="transaction.reputation.StdRepTransJdbcTemp">
+          class="h_transaction.reputation.StdRepTransJdbcTemp">
         <property name="dataSource"  ref="dataSource" />
     </bean>
 </beans>

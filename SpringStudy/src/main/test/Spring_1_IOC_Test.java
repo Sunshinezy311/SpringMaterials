@@ -1,8 +1,8 @@
 import unused.bean_test.bean_context.BeanAnnotation;
 import unused.bean_test.multi_bean.BeanInvoker;
-import ioc.springtest.AutoWiringService;
-import ioc.springtest.Test2Class;
-import ioc.springtest.TestClass;
+import b_ioc.springtest.AutoWiringService;
+import b_ioc.springtest.Test2Class;
+import b_ioc.springtest.TestClass;
 import org.junit.Test;
 import tools.PubUtil;
 

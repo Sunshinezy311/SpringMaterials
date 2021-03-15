@@ -5,7 +5,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--1. 自动装配的模式
         下列自动装配模式，它们可用于指示 Spring 容器为来使用自动装配进行依赖注入。
-        你可以使用<bean>元素的 autowire 属性为一个 bean 定义指定自动装配模式。
+        你可以使用<bean>元素的 e_autowire 属性为一个 bean 定义指定自动装配模式。
         模式	        描述
         no	        这是默认的设置，它意味着没有自动装配，你应该使用显式的bean引用来连线。
                     你不用为了连线做特殊的事。在依赖注入章节你已经看到这个了。
@@ -38,22 +38,22 @@
         在 XML 配置文件中 beans 的 auto-wire 属性设置为 byName。
         然后，它尝试将它的属性与配置文件中定义为相同名称的 beans 进行匹配和连接
     -->
-    <bean id="autoWireByNameMain" class="autowire.byname.AutoWireByNameMain" autowire="byName">
+    <bean id="autoWireByNameMain" class="e_autowire.byname.AutoWireByNameMain" autowire="byName">
         <property name="name" value="这是一个AutoWireByNameMain中的属性"/>
     </bean>
-    <bean id="autoWireByNameDependence1" class="autowire.byname.AutoWireByNameDependence1"/>
+    <bean id="autoWireByNameDependence1" class="e_autowire.byname.AutoWireByNameDependence1"/>
 
     <!--4. Spring 自动装配 ‘byType’-->
-    <bean id="autoWiredByTypeMain" class="autowire.bytype.AutoWireByTypeMain" autowire="byType">
+    <bean id="autoWiredByTypeMain" class="e_autowire.bytype.AutoWireByTypeMain" autowire="byType">
         <property name="name" value="这是一个AutoWireByTypeMain中的属性"/>
     </bean>
-    <bean id="autoWireByTypeDependence1" class="autowire.bytype.AutoWireByTypeDependence1"/>
+    <bean id="autoWireByTypeDependence1" class="e_autowire.bytype.AutoWireByTypeDependence1"/>
 
     <!--5. Spring 自动装配 'constructor'-->
-    <bean id="autoWiredByConstructorMain" class="autowire.constructor.AutoWiredByConstructorMain"
+    <bean id="autoWiredByConstructorMain" class="e_autowire.constructor.AutoWiredByConstructorMain"
           autowire="constructor">
         <constructor-arg value="这是一个AutoWiredByConstructorMain中的属性"/>
     </bean>
 
-    <bean id="autoWireByConstructorDependence1" class="autowire.constructor.AutoWireByConstructorDependence1"/>
+    <bean id="autoWireByConstructorDependence1" class="e_autowire.constructor.AutoWireByConstructorDependence1"/>
 </beans>

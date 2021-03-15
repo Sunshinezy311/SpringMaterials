@@ -1,7 +1,7 @@
-import di.applications_dl.CollectionDiMain;
-import di.applications_dl.InnerBeansDiMain;
-import di.constructor_di.ConstructDiMain;
-import di.setter_di.SetterDiMian;
+import d_di.applications_dl.CollectionDiMain;
+import d_di.applications_dl.InnerBeansDiMain;
+import d_di.constructor_di.ConstructDiMain;
+import d_di.setter_di.SetterDiMian;
 import org.junit.Test;
 import tools.PubUtil;
 

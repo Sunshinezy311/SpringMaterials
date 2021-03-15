@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-    <!--           default-autowire="byName">-->
+    <!--           default-e_autowire="byName">-->
 
     <!--    当又想使用注解方式加载bean，同时又想使用xml文件配置bean的方式加载Bean时，注意这两个中定义不能同时在同一个文件当中，
     可以分别定义在不同的xml中-->

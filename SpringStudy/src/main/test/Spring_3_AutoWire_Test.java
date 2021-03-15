@@ -1,6 +1,6 @@
-import autowire.byname.AutoWireByNameMain;
-import autowire.bytype.AutoWireByTypeMain;
-import autowire.constructor.AutoWiredByConstructorMain;
+import e_autowire.byname.AutoWireByNameMain;
+import e_autowire.bytype.AutoWireByTypeMain;
+import e_autowire.constructor.AutoWiredByConstructorMain;
 import org.junit.Test;
 import tools.PubUtil;
 

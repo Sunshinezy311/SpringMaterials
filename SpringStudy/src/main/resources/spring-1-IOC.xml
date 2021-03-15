@@ -17,14 +17,14 @@
     <!--    <bean class="unused.bean_test.multi_bean.BeanImpl1">-->
     <!--        <qualifier value="beanImpl1"/>-->
     <!--    </bean>-->
-    <bean id="test1" class="ioc.springtest.TestClass"/>
-    <bean id="test2" class="ioc.springtest.Test2Class" init-method="start" destroy-method="destory" lazy-init="true"/>
-    <!--<bean id="test2" class="ioc.springtest.Test2Class"/>-->
-    <bean id="ApplicationContextAware" class="ioc.springtest.TestApplicationContextAware"/>
-    <bean id="BeanAwareName" class="ioc.springtest.TestBeanAware"/>
-    <bean id="autoWiringService" class="ioc.springtest.AutoWiringService">
+    <bean id="test1" class="b_ioc.springtest.TestClass"/>
+    <bean id="test2" class="b_ioc.springtest.Test2Class" init-method="start" destroy-method="destory" lazy-init="true"/>
+    <!--<bean id="test2" class="Test2Class"/>-->
+    <bean id="ApplicationContextAware" class="b_ioc.springtest.TestApplicationContextAware"/>
+    <bean id="BeanAwareName" class="b_ioc.springtest.TestBeanAware"/>
+    <bean id="autoWiringService" class="b_ioc.springtest.AutoWiringService">
         <!--注意！！无需使用property可以使用default-autowire方法，该方法可以-->
         <property name="autoWiringDAO" ref="autoWiringDAO"/>
     </bean>
-    <bean id="autoWiringDAO" class="ioc.springtest.AutoWiringDAO"/>
+    <bean id="autoWiringDAO" class="b_ioc.springtest.AutoWiringDAO"/>
 </beans>

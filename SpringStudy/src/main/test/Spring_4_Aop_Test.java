@@ -1,5 +1,5 @@
-import aop.by_1_xml.XmlStudent;
-import aop.by_2_aspectj.AspectJStudent;
+import f_aop.by_1_xml.XmlStudent;
+import f_aop.by_2_aspectj.AspectJStudent;
 import org.junit.Test;
 import tools.PubUtil;
 

@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <!--           default-autowire="byName">-->
+    <!--           default-e_autowire="byName">-->
 
     <!--2. 依赖注入:
     a. （或有时称为布线）有助于把这些类粘合在一起，同时保持他们独立。
@@ -17,20 +17,20 @@
     对象不查找它的依赖关系，也不知道依赖关系的位置或类，而这一切都由 Spring 框架控制的。。-->
 
     <!--2.1 基于构造函数的依赖注入 -->
-    <bean id="constructdimain" class="di.constructor_di.ConstructDiMain">
+    <bean id="constructdimain" class="d_di.constructor_di.ConstructDiMain">
         <!--2.2 初始化顺序根据xml的顺序进行-->
         <constructor-arg ref="constructdi2"/>
         <constructor-arg ref="constructdi1"/>
     </bean>
-    <bean id="constructdi1" class="di.constructor_di.ConstructDependence1"/>
-    <bean id="constructdi2" class="di.constructor_di.ConstructDependence2"/>
+    <bean id="constructdi1" class="d_di.constructor_di.ConstructDependence1"/>
+    <bean id="constructdi2" class="d_di.constructor_di.ConstructDependence2"/>
 
 
     <!--基于设值函数的依赖注入-->
-    <bean id="setterDiMian" class="di.setter_di.SetterDiMian">
+    <bean id="setterDiMian" class="d_di.setter_di.SetterDiMian">
         <property name="setterDependence1" ref="setterDependence1"/>
     </bean>
-    <bean id="setterDependence1" class="di.setter_di.SetterDependence1"/>
+    <bean id="setterDependence1" class="d_di.setter_di.SetterDependence1"/>
     <!--两种方式俄唯一的区别就是在基于构造函数注入中，我们使用的是〈bean〉标签中的〈constructor-arg〉元素，
     而在基于设值函数的注入中，我们使用的是〈bean〉标签中的〈property〉元素。
     第二个你需要注意的点是，如果你要把一个引用传递给一个对象，那么你需要使用 标签的 ref 属性，
@@ -40,9 +40,9 @@
 
     <!--2.3 依赖注入的应用-->
     <!--2.3.1 注入内部Beans-->
-    <bean id="innerBeansDiMain" class="di.applications_dl.InnerBeansDiMain">
+    <bean id="innerBeansDiMain" class="d_di.applications_dl.InnerBeansDiMain">
         <property name="InnerBeansDependence1">
-            <bean id="InnerBeansDependence1" class="di.applications_dl.InnerBeansDependence1"/>
+            <bean id="InnerBeansDependence1" class="d_di.applications_dl.InnerBeansDependence1"/>
         </property>
     </bean>
 
@@ -55,7 +55,7 @@
         <map>	它可以用来注入名称-值对的集合，其中名称和值可以是任何类型。
         <props>	它可以用来注入名称-值对的集合，其中名称和值都是字符串类型。
     -->
-    <bean id="collectionDiMain" class="di.applications_dl.CollectionDiMain">
+    <bean id="collectionDiMain" class="d_di.applications_dl.CollectionDiMain">
         <property name="addressList">
             <list>
                 <value>INDIA</value>

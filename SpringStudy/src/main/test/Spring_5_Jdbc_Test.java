@@ -1,11 +1,11 @@
-import jdbc.JDBCStudent;
-import jdbc.StudentJDBCTemplate;
+import g_jdbc.JDBCStudent;
+import g_jdbc.StudentJDBCTemplate;
 import org.junit.Test;
 import tools.PubUtil;
-import transaction.programmatic.ProgStudentMarks;
-import transaction.programmatic.StdProgTransJdbcTemp;
-import transaction.reputation.RepStudentMarks;
-import transaction.reputation.StdRepTransJdbcTemp;
+import h_transaction.programmatic.ProgStudentMarks;
+import h_transaction.programmatic.StdProgTransJdbcTemp;
+import h_transaction.reputation.RepStudentMarks;
+import h_transaction.reputation.StdRepTransJdbcTemp;
 
 import java.util.List;
 

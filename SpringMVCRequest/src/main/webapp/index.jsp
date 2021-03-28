@@ -16,7 +16,7 @@
         </div>
         <div>
             <p>注意传入的参数是大小写敏感的</p>
-            <a href="user/testRequestMappingWithParams?username">带有参数的RequestMapping注解</a>
+            <a href="user/testRequestMappingWithParams?username=coolkie">带有参数的RequestMapping注解</a>
         </div>
         <div>
             <p>注意RequestMapping中有固定的key和value，则对应有该key和value值的请求就只走对应的这个Mapping</p>

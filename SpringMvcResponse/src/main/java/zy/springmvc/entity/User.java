@@ -3,6 +3,7 @@ package zy.springmvc.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+//作为请求和相应的实体必须实现序列化接口
 public class User implements Serializable {
     String username;
     String password;

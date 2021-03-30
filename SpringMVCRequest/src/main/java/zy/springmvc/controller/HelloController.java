@@ -40,9 +40,23 @@ public class HelloController {
     }
 
     // headers是表示必须包含这个头的属性
-    @RequestMapping(headers ={"Accept"} ,method = {POST, GET}, value = "/testRequestMappingWithParamsAndHeaders", params = {"username=coolkie"})
+    @RequestMapping(headers = {"Accept"}, method = {POST, GET}, value = "/testRequestMappingWithParamsAndHeaders", params = {"username=coolkie"})
     public String testRequestMappingWithParamsAndHeaders() {
         System.out.println("测试RequestMapping注解........注意走的是这个请求！！！而不是上面的");
         return "success";
+    }
+
+    // Servlet原生API介绍
+    @RequestMapping("/servletOriginApi")
+    public String servletOriginApi() {
+        System.out.println("测试servletOriginApi注解.......");
+        return "originServlet";
+    }
+
+    // Spring发送Post请求的传参方式介绍
+    @RequestMapping("/postRequest")
+    public String postRequest() {
+        System.out.println("测试postRequest注解.......");
+        return "params";
     }
 }

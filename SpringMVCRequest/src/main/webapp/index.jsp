@@ -3,6 +3,7 @@
 
     <head>
         <title>Title</title>
+        <script src="js/jquery.min.js"></script>
     </head>
 
     <body>
@@ -25,6 +26,15 @@
         <div>
             <p>注意RequestMapping中有固定Headers，则只能传发送的请求头中包含有该Header的</p>
             <a href="user/testRequestMappingWithParamsAndHeaders?username=coolkie">包含请求头并带有参数以及参数值的RequestMapping注解</a>
+        </div>
+
+        <div>
+            <p>Servlet原生API介绍</p>
+            <a href="user/servletOriginApi">servletOriginApi</a>
+        </div>
+        <div>
+            <p>Spring发送Post请求的传参方式</p>
+            <a href="user/postRequest">postRequest</a>
         </div>
     </body>
 

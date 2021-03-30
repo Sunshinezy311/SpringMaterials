@@ -18,7 +18,7 @@ import java.util.Map;
 //Servlet原生API调用
 @Controller
 //注意不能用name，name是找不到路径的
-@RequestMapping(path = "/originServlet")
+@RequestMapping(path = "/user/originServlet")
 @SessionAttributes(value = {"msg"}) //相当于把testSessionAttributes中配置的msg=美美存入到Session对象中一份，这样的话方法之间可以共享
 public class ServletController {
     @RequestMapping(path = "/servletTest")
@@ -81,7 +81,7 @@ public class ServletController {
     public User initUserBySetters(String uname) {
         System.out.println("initUserBySetters()执行了...表单中没有的值，可以在showUser方法里补");
         User user = new User();
-        user.setUname("张三");
+        user.setUsername("张三");
         user.setAge(23);
         user.setDate(new Date());
         System.out.println(user);
@@ -94,7 +94,7 @@ public class ServletController {
     public void initUserByMap(String uname, Map<String, User> map) {
         System.out.println("initUserByMap()执行了...表单中没有的值，可以在showUser方法里补");
         User user = new User();
-        user.setUname("张三");
+        user.setUsername("张三");
         user.setAge(24);
         user.setDate(new Date());
         System.out.println(user);

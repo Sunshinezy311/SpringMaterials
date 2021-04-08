@@ -48,6 +48,7 @@
             </form>
         </div>
 
+        <h3>ajax实现请求参数发送与返回</h3>
         <div>
             <h5>基于js使用button实现一个ajax请求，ajax是一个异步请求</h5>
             <script>
@@ -70,17 +71,23 @@
             <button id="btn">发送ajax请求</button>
         </div>
 
+        <h3>上传文件</h3>
         <div>
             <p>上传文件，有以下几个必要条件：<br>
-                1.form表单的entype（表单请求正文的类型）取值必须是multipart/form-data。<br>
+                1.form表单的enctype（表单请求正文的类型）取值必须是multipart/form-data。<br>
                 2.method必须是POST
                 3.必须提供一个文件选择域：&lt;input type="file" /&gt;
             </p>
-            <form action="param/saveUser" method="post">
-                用户1姓名：<input type="text" name="uname" /></br>
-                用户1年龄：<input type="text" name="age" /></br>
-                用户1日期：<input type="text" name="date" /></br>
-                <input type="submit" value="提交" />
+            <h5>传统上传文件的方式</h5>
+            <form action="fileUpload/fileUploadByTraditionWay" method="post" enctype="multipart/form-data">
+                选择文件：<input type="file" name="upload" /></br>
+                上传：<input type="submit" value="上传" /></br>
+            </form>
+            <h5>SpringMVC上传文件的方式，需要配置文件解析器</h5>
+            <form action="fileUpload/fileUploadBySpringWay" method="post" enctype="multipart/form-data">
+                <!-- 注意选择文件中的name叫upload，则调用的方法名中传入的参数也必须叫upload -->
+                选择文件：<input type="file" name="upload" /></br>
+                上传：<input type="submit" value="上传" /></br>
             </form>
         </div>
 

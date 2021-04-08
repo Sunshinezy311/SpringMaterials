@@ -20,15 +20,6 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!--配置自定义类型转换器，这个是Spring提供的一个类-->
-    <!--注册一个组件-->
-    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
-        <property name="converters">
-            <set>
-                <bean class="zy.springmvc.utils.String2DateConvertor"/>
-            </set>
-        </property>
-    </bean>
 
     <!--上传文件需要定制文件解析器，注意bean id必须叫multiPartResolver -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -36,17 +27,14 @@
     </bean>
 
     <!--由于前端控制器是所有文件都会走控制中心，这就导致配置的js等静态文件直接把操作发送给服务端请求，但是服务端并没有处理这个请求，导致我们点击按钮是无相应的。
-    因此需要告诉前端控制器哪些静态资源文件不拦截
-    mapping: 请求路径中带有js目录下的文件，都不进行拦截
-    location: 表示配置路径下的任何文件都不再拦截
-    -->
+        因此需要告诉前端控制器哪些静态资源文件不拦截
+        mapping: 请求路径中带有js目录下的文件，都不进行拦截
+        location: 表示配置路径下的任何文件都不再拦截
+        -->
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/images/**" location="/images/"/>
     <mvc:resources mapping="/js/**" location="/js/"/>
 
-
-    <!-- 3 开启SpringMVC框架注解的支持，如@RequestMapping(path="/hello"),如果没有配置视图解析器和处理器映射器和处理器适配器，只配置这个就相当于走的默认方式-->
-    <!--conversion-service表示注册的组件加载id的配置-->
-    <mvc:annotation-driven conversion-service="conversionService"/>
+    <mvc:annotation-driven/>
 
 </beans>

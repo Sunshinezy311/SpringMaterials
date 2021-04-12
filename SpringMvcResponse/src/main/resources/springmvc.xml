@@ -20,6 +20,9 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--配置异常处理器-->
+    <bean id="sysExceptionResolver" class="zy.springmvc.exception.SysExceptionResolver"/>
+
     <!--由于前端控制器是所有文件都会走控制中心，这就导致配置的js等静态文件直接把操作发送给服务端请求，但是服务端并没有处理这个请求，导致我们点击按钮是无相应的。
         因此需要告诉前端控制器哪些静态资源文件不拦截
         mapping: 请求路径中带有js目录下的文件，都不进行拦截

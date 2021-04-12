@@ -45,13 +45,19 @@
                             dataType: "json",
                             type: "post",
                             success: function (data) {
-                                alert("点击按钮发送ajax响应的结果：\n" + data.username + "\n" + data.age+ "\n" + data.password);
+                                alert("点击按钮发送ajax响应的结果：\n" + data.username + "\n" + data.age + "\n" + data.password);
                             }
                         });
                     });
                 });
             </script>
             <button id="btn">发送ajax请求</button>
+        </div>
+
+        <div>
+            <h5>异常处理，异常处理器需要实现HandlerExceptionResolver接口，请求出现异常后，根据处理方法抛出的异常，抛到自己定义的异常中。
+                注意，所有请求抛出的异常都是进入到这个方法中，所以要特别留意一下此处的异常分类和处理</h5>
+            <a href="exception/testException">异常处理</a>
         </div>
     </body>
 

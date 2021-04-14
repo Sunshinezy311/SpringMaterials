@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 1 开启注解扫描 -->
+    <context:component-scan base-package="zy.springmvc"/>
+
+    <!-- 2 视图解析器对象，例如本程序中sayHello方法返回了success后，会传给这个视图解析器这个对象，跳转到配置的路径下带有success的文件-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--配置异常处理器，注意异常处理的-->
+    <bean id="sysExceptionResolver" class="zy.springmvc.exception.SysExceptionResolver"/>
+
+    <!--过滤器和拦截器，都是在执行Controller代码前后做的处理，都可以形成链式，顺序是123321这种风格的
+    过滤器和拦截器的区别：
+    过滤器是Servlet规范中的一部分，过滤器配置url-pattern为/*后，可对所有请求进行拦截
+    拦截器是SpringMVC自己的，拦截器只会拦截访问控制器的方法，如果为.jsp、html、css、image、js是不会拦截的
+    -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--要拦截的具体请求url-->
+            <mvc:mapping path="/interceptor/*"/>
+            <!--配置拦截器对象-->
+            <bean class="zy.springmvc.interceptor.MyInterceptor1"/>
+            <!--不拦截的具体方法-->
+            <!--<mvc:exclude-mapping path=""/>-->
+        </mvc:interceptor>
+        <!--若有其他拦截的请求，则继续再加-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="zy.springmvc.interceptor.MyInterceptor2"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!--由于前端控制器是所有文件都会走控制中心，这就导致配置的js等静态文件直接把操作发送给服务端请求，但是服务端并没有处理这个请求，导致我们点击按钮是无响应的。
+        因此需要告诉前端控制器哪些静态资源文件不拦截
+        mapping: 请求路径中带有js目录下的文件，都不进行拦截
+        location: 表示配置路径下的任何文件都不再拦截
+        -->
+    <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/images/**" location="/images/"/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
+
+    <mvc:annotation-driven/>
+
+</beans>

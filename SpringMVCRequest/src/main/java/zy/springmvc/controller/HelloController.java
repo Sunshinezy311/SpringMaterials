@@ -13,7 +13,7 @@ public class HelloController {
     @RequestMapping(path = "/hello")
     public String sayHello() {
         System.out.println("Hello Spring MVC!");
-        //返回的字符串，很根据springmvc.xml中配置的视图解析器中使用的路ing，匹配对应jsp文件的名称
+        //返回的字符串，很根据springmvc.xml中配置的视图解析器中使用的路径，匹配对应jsp文件的名称
         return "success";
     }
 

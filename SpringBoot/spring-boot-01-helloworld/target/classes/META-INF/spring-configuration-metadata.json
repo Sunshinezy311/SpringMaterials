@@ -1,0 +1,87 @@
+{
+  "groups": [
+    {
+      "name": "person",
+      "type": "zy.springboot.bean.byConfigurationProperties.Person1",
+      "sourceType": "zy.springboot.bean.byConfigurationProperties.Person1"
+    },
+    {
+      "name": "person1",
+      "type": "zy.springboot.bean.byPropertySource.Person3",
+      "sourceType": "zy.springboot.bean.byPropertySource.Person3"
+    }
+  ],
+  "properties": [
+    {
+      "name": "person.age",
+      "type": "java.lang.Integer",
+      "sourceType": "zy.springboot.bean.byConfigurationProperties.Person1"
+    },
+    {
+      "name": "person.birth",
+      "type": "java.util.Date",
+      "sourceType": "zy.springboot.bean.byConfigurationProperties.Person1"
+    },
+    {
+      "name": "person.boss",
+      "type": "java.lang.Boolean",
+      "sourceType": "zy.springboot.bean.byConfigurationProperties.Person1"
+    },
+    {
+      "name": "person.dog",
+      "type": "zy.springboot.bean.byConfigurationProperties.Dog",
+      "sourceType": "zy.springboot.bean.byConfigurationProperties.Person1"
+    },
+    {
+      "name": "person.last-name",
+      "type": "java.lang.String",
+      "sourceType": "zy.springboot.bean.byConfigurationProperties.Person1"
+    },
+    {
+      "name": "person.lists",
+      "type": "java.util.List<java.lang.Object>",
+      "sourceType": "zy.springboot.bean.byConfigurationProperties.Person1"
+    },
+    {
+      "name": "person.maps",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>",
+      "sourceType": "zy.springboot.bean.byConfigurationProperties.Person1"
+    },
+    {
+      "name": "person1.age",
+      "type": "java.lang.Integer",
+      "sourceType": "zy.springboot.bean.byPropertySource.Person3"
+    },
+    {
+      "name": "person1.birth",
+      "type": "java.util.Date",
+      "sourceType": "zy.springboot.bean.byPropertySource.Person3"
+    },
+    {
+      "name": "person1.boss",
+      "type": "java.lang.Boolean",
+      "sourceType": "zy.springboot.bean.byPropertySource.Person3"
+    },
+    {
+      "name": "person1.dog",
+      "type": "zy.springboot.bean.byPropertySource.Dog3",
+      "sourceType": "zy.springboot.bean.byPropertySource.Person3"
+    },
+    {
+      "name": "person1.last-name",
+      "type": "java.lang.String",
+      "sourceType": "zy.springboot.bean.byPropertySource.Person3"
+    },
+    {
+      "name": "person1.lists",
+      "type": "java.util.List<java.lang.Object>",
+      "sourceType": "zy.springboot.bean.byPropertySource.Person3"
+    },
+    {
+      "name": "person1.maps",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>",
+      "sourceType": "zy.springboot.bean.byPropertySource.Person3"
+    }
+  ],
+  "hints": []
+}

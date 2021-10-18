@@ -1,0 +1,6 @@
+# 优先级 config>默认, 外>里
+#spring.profiles.active> 项目根目录的config文件夹>项目根目录>classpath下的resource下的config文件夹>classpath下的resource文件夹
+server:
+  port: 8089
+  #  配置项目的访问路径
+    context-path: /boot

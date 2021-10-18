@@ -29,6 +29,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <spring-webmvc.version>5.3.9</spring-webmvc.version>
     </properties>
 
     <dependencies>
@@ -42,36 +43,36 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>5.2.2.RELEASE</version>
+            <version>${spring-webmvc.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.2.2.RELEASE</version>
+            <version>${spring-webmvc.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>5.2.2.RELEASE</version>
+            <version>${spring-webmvc.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>5.2.2.RELEASE</version>
+            <version>${spring-webmvc.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>5.2.2.RELEASE</version>
+            <version>${spring-webmvc.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>5.2.3.RELEASE</version>
+            <version>${spring-webmvc.version}</version>
         </dependency>
 
 
@@ -85,25 +86,25 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>org.springframework.beans</artifactId>
-            <version>3.2.2.RELEASE</version>
+            <version>${spring-webmvc.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/org.springframework.context -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>org.springframework.context</artifactId>
-            <version>3.2.2.RELEASE</version>
+            <version>${spring-webmvc.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/org.springframework.expression -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>org.springframework.expression</artifactId>
-            <version>3.2.2.RELEASE</version>
+            <version>${spring-webmvc.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/org.springframework.web.servlet -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>org.springframework.web.servlet</artifactId>
-            <version>3.2.2.RELEASE</version>
+            <version>${spring-webmvc.version}</version>
         </dependency>
 
 

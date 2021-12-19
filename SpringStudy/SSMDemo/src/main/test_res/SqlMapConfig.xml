@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration PUBLIC
+        "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+<!--配置环境，注意，这个文件就是整合到spring中使用到的配置信息。-->
+    <environments default="mysql">
+        <environment id="mysql">
+            <!--事务类型-->
+            <transactionManager type="JDBC"/>
+            <!--使用的连接方式:连接池. 不用连接池就设置为UNPOOLED-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+<!--                <property name="url" value="jdbc:mysql:///ssm/"/>-->
+                <property name="url" value="jdbc:mysql://localhost:3306/ssm"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+<!--引入映射配置文件-->
+    <mappers>
+<!--        <mapper class="zy.springmvc.dao.AccountDao"/>-->
+        <package name="zy.springmvc.dao"/>
+    </mappers>
+</configuration>

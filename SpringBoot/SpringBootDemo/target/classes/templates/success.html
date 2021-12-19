@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<!--在 html上添加一个thymeleaf的命名空间, 用于thymeleaf相关插件引入-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${msg}">哈哈</h1>
+<h2>
+    <a href="www.atguigu.com" th:href="${link}">去百度</a>  <br/>
+    <a href="www.atguigu.com" th:href="@{/link}">去百度2</a>
+</h2>
+</body>
+</html>
